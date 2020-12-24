@@ -1,17 +1,20 @@
 public class EmpWageClassMethod
 {
-	public static final int FULL_TIME=1;
-	public static final int PART_TIME=2;
+        public static final int FULL_TIME=1;
+        public static final int PART_TIME=2;
+        public static final int EMP_RATE_PER_HR=20;
+        public static final int NUM_OF_WORKING_DAYS=20;
+        public static final int MAX_WORKING_HRS=100;
 
-	public static void computeEmpWage(String company,int empRatePerHr,int numOfWorkingDays,int maxWorkingHrs)
-	{
-		int empHrs=0;
+        public static void computeEmpWage()
+        {
+         int empHrs=0;
                 int totalEmpWage=0;
                 int empWage=0;
                 int totalEmpHrs=0;
                 int totalWorkingDays=0;
 
-                while(totalEmpHrs<=maxWorkingHrs && totalWorkingDays<=numOfWorkingDays)
+                while(totalEmpHrs<=MAX_WORKING_HRS && totalWorkingDays<=NUM_OF_WORKING_DAYS)
                 {
                         totalWorkingDays++;
                         int empCheck=(int)Math.floor(Math.random()*10)%3;
@@ -31,16 +34,12 @@ public class EmpWageClassMethod
                         }
                         totalEmpHrs+=empHrs;
                 }
-                totalEmpWage=totalEmpHrs*empRatePerHr;
-                System.out.println("Company: "+company+" Total Employee Wage: "+totalEmpWage);
+                totalEmpWage=totalEmpHrs*EMP_RATE_PER_HR;
+                System.out.println("Total Employee Wage: "+totalEmpWage);
 
-	}
-
-	public static void main(String[] args)
-	{
-		computeEmpWage("Dmart",12,34,56);
-		computeEmpWage("Reliance",23,36,46);
-		computeEmpWage("Deloitte",24,64,16);
-		
-	}
+        }
+        public static void main(String[] args)
+        {
+                computeEmpWage();
+        }
 }
